@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Expenses from './expenses'
 
-function Budgetcard({ name, currentSpending, scaleInput, maxspending, currency, onDelete, index }) {
+function Budgetcard({ name, currentSpending, scaleInput, maxspending, currency, onDelete, index, onAddExpenses }) {
 
     const [openExpenses, setOpenExpenses] = useState(false)
     return (
@@ -22,18 +22,18 @@ function Budgetcard({ name, currentSpending, scaleInput, maxspending, currency, 
              <h1 className="spending text-gray-400 text-[1.5vw]">
                 {currency}{currentSpending}/{currency}{maxspending}
             </h1>
-            <div className="w-[100%] h-4 bg-gray-200 rounded-full relative">
+            <div className="w-[100%] scaleBase h-4 bg-gray-200 rounded-full relative">
                  <div style={{width: `${scaleInput}%`,
                               maxWidth: '100%'}}
-                 className={`h-4 bg-blue-400 rounded-full absolute ${scaleInput >= 100 ? 'bg-red-400' : scaleInput >= 50 ? 'bg-yellow-400' : 'bg-blue-500'}`}></div>
+                 className={`h-4 bg-blue-400 scale rounded-full absolute ${scaleInput >= 100 ? 'bg-red-400' : scaleInput >= 50 ? 'bg-yellow-400' : 'bg-blue-500'}`}></div>
             </div>
             <button onClick={() => onDelete(index)} className="deleteBtn text-gray-400 cursor-pointer">
                 Delete Budget
             </button>
         </div>
         <div className={`overflow-x-hidden flex justify-center items-center overflow-hidden w-screen h-screen absolute z-[1] ${openExpenses === true ? 'visible' : 'invisible'}`}>
-             <div className={`overflow-x-hidden w-screen h-screen bg-black opacity-23 z-0`}></div>
-        <Expenses open={openExpenses} currency={currency} budgetName={name} exit={()=>{setOpenExpenses(false)}}></Expenses>
+             <div className={`absolute overflow-x-hidden w-screen h-screen bg-black opacity-23 z-0`}></div>
+        <Expenses open={openExpenses} onAddExpenses={onAddExpenses} currency={currency} budgetName={name} exit={()=>{setOpenExpenses(false)}}></Expenses>
         </div>
         </>
     )

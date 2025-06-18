@@ -1,7 +1,7 @@
 import ExpensesCard from "./expensesCard"
 import React, {useState, useEffect, useRef} from 'react'
 
-function Expenses({open, exit, budgetName, currency}){
+function Expenses({open, exit, budgetName, currency, onAddExpenses}){
 
     const [addExpenses, setAddExpenses] = useState(false)
     const [expenditureName, setExpenditureName] = useState('')
@@ -27,6 +27,7 @@ function Expenses({open, exit, budgetName, currency}){
          setAmount('')
          setExpenditureName('')
         setTimeout(()=>{setAddExpenses(false)}, 300)
+        onAddExpenses()
         
 }
 
@@ -43,6 +44,7 @@ function Expenses({open, exit, budgetName, currency}){
        
         localStorage.setItem(`expenses-${budgetName}`, JSON.stringify(filtered))
         setExpenses(filtered)
+        onAddExpenses()
         
     }
 
@@ -51,9 +53,9 @@ function Expenses({open, exit, budgetName, currency}){
 
     return(
         <>
-    <div className={`p-5 rounded-[10px] expensesCard mt-25 w-[50vw] h-auto bg-white absolute top-0 transition duration-500 ease-in-out ${open === true ? 'scale-100' : 'scale-0'}`}>
+    <div className={`overflow-hidden p-5 rounded-[10px] expensesCard mt-25 w-[50vw] h-auto bg-white absolute top-0 transition duration-500 ease-in-out ${open === true ? 'scale-100' : 'scale-0'}`}>
         <h1 className='expensesBudgetName text-center text-blue-500 text-[2vw]'>{budgetName} Current Expenditure</h1>
-        <div className="expensesList expensesCards mt-5 w-[100%] h-auto">
+        <div className="overflow-auto expensesList expensesCards mt-5 w-[100%] h-auto">
         {expenses.map((expense, index)=>(
             <ExpensesCard key={index} onDelete={()=> handleDeleteExpenses(index)} date={expense.id} currency={currency} name={expense.name} amount={expense.amount}></ExpensesCard>
         ))}

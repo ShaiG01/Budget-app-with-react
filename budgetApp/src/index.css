@@ -13,7 +13,7 @@
 
 .expensesList{
     display: grid;
-    grid-template-columns: 23vw 23vw;
+    grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
     grid-auto-rows: auto;
     gap:1vw;
 }
@@ -60,11 +60,11 @@
     }
 
     label{
-        font-size: 3vh;
+        font-size: 2vh;
     }
 
     input{
-        height: 3vh;
+        height: 5vh;
     }
     .formButton{
         padding: 1vh;
@@ -127,36 +127,8 @@
     .budgetCard{
         width: 20vh;
         height: 30vh;
-        padding: 5px
-        ;
-    }
-
-    .budgetName{
-        font-size: 1vh;
-    }
-
-    .spending{
-        font-size: 2vh;
-    }
-
-    .budgetCardBtn{
-        width: 10vh;
-        height: 5vh;
-        font-size: 1vh;
-    }
-
-    
-}
-
-@media (max-width: 1220px ){
-    .budgetCards{
-        grid-template-columns: 100%;
-    }
-
-    .budgetCard{
-        width: 35vh;
-        height: 30vh
-        ;
+        padding: 5vh;
+        
     }
 
     .budgetName{
@@ -170,11 +142,52 @@
     .budgetCardBtn{
         width: 10vh;
         height: 5vh;
+        font-size: 2vh;
+    }
+
+    
+}
+
+@media (max-width: 1220px ){
+    .budgetCards{
+        grid-template-columns: 100%;
+    }
+
+    .budgetCard{
+        width: 45vh;
+        height: 50vh;
+        
+    }
+
+    .budgetName{
+        font-size: 5vh;
+    }
+
+    .footerText{
+        font-size: 2vh;
+    }
+
+    footer{
+        height: 10vh;
+    }
+        
+
+    .overlay{
+        height: 999vh;
+    }
+
+    .spending{
+        font-size: 2vh;
+    }
+
+    .budgetCardBtn{
+        width: 10vh;
+        height: 5vh;
         font-size: 1vh;
     }
 
     .deleteBtn{
-        margin-top: 5vh;
+        margin-top: 10vh
     }
 
     .expensesCard{
@@ -190,6 +203,7 @@
     .expensesBtn{
         width: 15vh;
         padding: 1vh;
+        font-size: 1.5vh;
     }
 
     .btnContainer{
@@ -220,15 +234,36 @@
     }
 
     .expensesList{
-        grid-template-columns: 18vh 18vh;
+        grid-template-columns: 18vh 18vh 18vh 18vh 18vh 18vh 18vh 18vh 18vh 18vh 18vh;
         gap: 1vh;
     }
 
+    .eCard{
+        justify-content: center;
+        align-items: center;
+    }
     .expensesName{
-        font-size: 1vh;
+        font-size: 1.5vh;
+    }
+
+    .scale{
+        height: 1.5vh;
     }
 
     .expensesAmount{
+        font-size: 1vh;
+    }
+
+    .date{
+        font-size: 1vh;
+    }
+
+    .scaleBase{
+        height: 1.5vh;
+    
+    }
+
+    .expensesDeleteBtn{
         font-size: 1vh;
     }
 }
